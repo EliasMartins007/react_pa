@@ -3,14 +3,38 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 function CadastroCategoria() {
   const [categorias, setCategorias] = useState(['Teste']); //sempre o setCategorias altera o useState 29/03/2021
-  const [nomeDaCategoria, setNomeDaCategoria] = useState('Valor Inicial');
+
+  const valoresIniciais = {
+    nome: 'Categoria Inicial',
+    descricao: 'Descrição inicial',
+    cor: '#B0E0E6',
+  }; //#000
+
+  const [values, setValues] = useState(valoresIniciais); //const [nomeDaCategoria, setNomeDaCategoria] = useState('Teste');
   //console.log(nomeDaCategoria);
+  function setValue(chave, valor) {
+    //chave: pode ser nome , descrição, etc
+    setValues({
+      ...values,
+      [chave]: valor, //nome : 'valor'
+    });
+  }
+
+  function handleChange(infosDoEvento) {
+    // console.log('[nomeDaCategoria]', nomeDaCategoria);
+    //  console.log('[informacao do evento]', infosDoEvento.target.value);
+    setValue(
+      infosDoEvento.target.getAttribute('name'),
+      infosDoEvento.target.value
+    );
+  }
 
   return (
     <PageDefault>
-      <h1>Cadatro de Categoria: {nomeDaCategoria}</h1>
+      <h1>Cadatro de Categoria: {values.nome}</h1>
+      {/*<h1>Cadatro de Categoria: {nomeDaCategoria}</h1>*/}
       <form
-        style={{ background: nomeDaCategoria }}
+        // style={{ background: nomeDaCategoria }}
         onSubmit={function handleSubmit(infosDoEvento) {
           //(infoDoEvento como parametro para evitar default carregamento tela)
           infosDoEvento.preventDefault();
@@ -18,7 +42,7 @@ function CadastroCategoria() {
           // prettier-ignore
           setCategorias([
             ...categorias,
-            nomeDaCategoria
+           values// nomeDaCategoria
           ]);
         }}
       >
@@ -28,12 +52,18 @@ function CadastroCategoria() {
             Nome da Categoria:
             <input
               type="text"
-              value={nomeDaCategoria}
-              onChange={function funcaoHandlerQueOErroPediu(infosDoEvento) {
-                // console.log('[nomeDaCategoria]', nomeDaCategoria);
-                //  console.log('[informacao do evento]', infosDoEvento.target.value);
-                setNomeDaCategoria(infosDoEvento.target.value);
-              }}
+              value={values.nome} //value={nomeDaCategoria}
+              name="nome"
+              onChange={handleChange}
+              // onChange={function funcaoHandlerQueOErroPediu(infosDoEvento) {
+              //   // console.log('[nomeDaCategoria]', nomeDaCategoria);
+              //   //  console.log('[informacao do evento]', infosDoEvento.target.value);
+              //   setValue(
+              //     infosDoEvento.target.getAttribute('name'),
+              //     infosDoEvento.target.value
+              //   ); //  setNomeDaCategoria(infosDoEvento.target.value);
+              // }
+              // }
             />
           </label>
 
@@ -42,12 +72,14 @@ function CadastroCategoria() {
             Descrição:
             <textarea
               type="text"
-              value={nomeDaCategoria}
-              onChange={function funcaoHandlerQueOErroPediu(infosDoEvento) {
-                // console.log('[nomeDaCategoria]', nomeDaCategoria);
-                //  console.log('[informacao do evento]', infosDoEvento.target.value);
-                setNomeDaCategoria(infosDoEvento.target.value);
-              }}
+              value={values.descricao} //value={nomeDaCategoria}
+              name="descricao"
+              onChange={handleChange}
+              // onChange={function funcaoHandlerQueOErroPediu(infosDoEvento) {
+              //   // console.log('[nomeDaCategoria]', nomeDaCategoria);
+              //   //  console.log('[informacao do evento]', infosDoEvento.target.value);
+              //   //setValue('Descricção', infosDoEvento.target.value); //setNomeDaCategoria(infosDoEvento.target.value);
+              // }}
             />
           </label>
 
@@ -56,12 +88,14 @@ function CadastroCategoria() {
             Cor:
             <input
               type="color"
-              value={nomeDaCategoria}
-              onChange={function funcaoHandlerQueOErroPediu(infosDoEvento) {
-                // console.log('[nomeDaCategoria]', nomeDaCategoria);
-                //  console.log('[informacao do evento]', infosDoEvento.target.value);
-                setNomeDaCategoria(infosDoEvento.target.value);
-              }}
+              value={values.cor} //value={nomeDaCategoria}
+              name={'cor'}
+              onChange={handleChange}
+              // onChange={function funcaoHandlerQueOErroPediu(infosDoEvento) {
+              //   // console.log('[nomeDaCategoria]', nomeDaCategoria);
+              //   //  console.log('[informacao do evento]', infosDoEvento.target.value);
+              //   //setValue('COR', infosDoEvento.target.value); //setNomeDaCategoria(infosDoEvento.target.value);
+              // }}
             />
           </label>
         </div>
@@ -70,7 +104,7 @@ function CadastroCategoria() {
       </form>
       <ul>
         {categorias.map((categoria, indice) => {
-          return <li key={`${categoria}${indice}`}>{categorias}</li>;
+          return <li key={`${categoria}${indice}`}>{categoria.nome}</li>;
         })}
       </ul>
 
