@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
+//
 function CadastroCategoria() {
-  const [categorias, setCategorias] = useState(['Teste']); //sempre o setCategorias altera o useState 29/03/2021
-
   const valoresIniciais = {
-    nome: 'Categoria Inicial',
-    descricao: 'Descrição inicial',
-    cor: '#B0E0E6',
-  }; //#000
+    nome: '',
+    descricao: '',
+    cor: '',
+  }; //#000  #B0E0E6
 
+  //
+  const [categorias, setCategorias] = useState([]); //sempre o setCategorias altera o useState 29/03/2021
   const [values, setValues] = useState(valoresIniciais); //const [nomeDaCategoria, setNomeDaCategoria] = useState('Teste');
+
   //console.log(nomeDaCategoria);
   function setValue(chave, valor) {
     //chave: pode ser nome , descrição, etc
@@ -23,9 +25,12 @@ function CadastroCategoria() {
   function handleChange(infosDoEvento) {
     // console.log('[nomeDaCategoria]', nomeDaCategoria);
     //  console.log('[informacao do evento]', infosDoEvento.target.value);
+    //    const { getAttribute, value } = infosDoEvento.target;
     setValue(
       infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.value
+      infosDoEvento.target.value // otimizado
+      //getAttribute('name'),
+      //value
     );
   }
 
@@ -44,6 +49,7 @@ function CadastroCategoria() {
             ...categorias,
            values// nomeDaCategoria
           ]);
+          setValues(valoresIniciais);
         }}
       >
         <div>
