@@ -9,6 +9,7 @@ import Agenda from './pages/agenda/agenda';
 
 //import Login from './components/Login/Login';
 import CadastroVideo from './pages/cadastro/Video'; //'./pages/cadastro/Video';
+import CadastroCategoria from './pages/cadastro/Categoria';
 
 const Pagina404 = () => <div>Página 404</div>;
 
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route path="/" component={Home} exact />
       <Route path="/Login" component={Login} exact />
       <Route path="/cadastro/video" component={CadastroVideo} exact />
+      <Route path="/cadastro/categoria" component={CadastroCategoria} />
       <Route path="/agenda" components={Agenda} />
       <Route component={Pagina404} />
     </Switch>

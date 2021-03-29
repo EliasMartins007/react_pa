@@ -1,8 +1,9 @@
 import React from 'react';
-import Menu from '../Menu';
+//import Menu from '../Menu';
+import Menu from '../Menu/login'; //especifico
 import Footer from '../Footer';
 import styled from 'styled-components';
-
+//tela de login
 const Main = styled.main`
   background-color: var(--black);
   color: var(--white);
@@ -12,7 +13,7 @@ const Main = styled.main`
   padding-right: 5px;
 `;
 
-function PageDefault({ children }) {
+function PageDefaultLogin({ children }) {
   //destruct js{}
   return (
     <>
@@ -22,4 +23,4 @@ function PageDefault({ children }) {
     </>
   );
 }
-export default PageDefault;
+export default PageDefaultLogin;

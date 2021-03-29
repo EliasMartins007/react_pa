@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/img/Logo.png';
 import '../Menu/Menu.css'; //'./Menu.css';
 //import ButtonLink from '../ButtonLink';
-import Button from '../Button';
+///import Button from '../Button'; 28/03/2021
 
 function Menu() {
   return (
@@ -11,10 +11,6 @@ function Menu() {
       <Link to="/">
         <img className="Logo" src={Logo} alt="Logo" />
       </Link>
-
-      <Button as={Link} className="ButtonLink" to="/Cadastro/Video">
-        Novo
-      </Button>
     </nav>
   );
 }
