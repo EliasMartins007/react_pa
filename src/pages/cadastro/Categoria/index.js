@@ -73,11 +73,10 @@ function CadastroCategoria() {
             />
           </label>
 
-          {/* ex: State */}
           <label>
             Descrição:
             <textarea
-              type="text"
+              type="textarea"
               value={values.descricao} //value={nomeDaCategoria}
               name="descricao"
               onChange={handleChange}
@@ -89,13 +88,12 @@ function CadastroCategoria() {
             />
           </label>
 
-          {/* ex: State */}
           <label>
             Cor:
             <input
               type="color"
               value={values.cor} //value={nomeDaCategoria}
-              name={'cor'}
+              name="cor"
               onChange={handleChange}
               // onChange={function funcaoHandlerQueOErroPediu(infosDoEvento) {
               //   // console.log('[nomeDaCategoria]', nomeDaCategoria);

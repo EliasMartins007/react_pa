@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  color: white;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -111,7 +110,7 @@ button {
 }
 
 input:focus {
-  --primary: #2a7ae4;
+  --primary: #2a7ae4; /*cor  embaixo do input da tela*/
   font-family: 'Roboto', sans-serif;
   color: rgb(245, 245, 245);
   display: block;
