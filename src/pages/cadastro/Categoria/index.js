@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
+import FormField from '../../../components/FormField';
 //
 function CadastroCategoria() {
   const valoresIniciais = {
@@ -54,7 +55,7 @@ function CadastroCategoria() {
       >
         <div>
           {/* ex: State */}
-          <label>
+          {/* <label>
             Nome da Categoria:
             <input
               type="text"
@@ -71,9 +72,16 @@ function CadastroCategoria() {
               // }
               // }
             />
-          </label>
+          </label> */}
+          <FormField
+            label="Nome da Categoria"
+            type="text"
+            name="nome"
+            value={values.nome}
+            onChange={handleChange}
+          />
 
-          <label>
+          {/* <label>
             Descrição:
             <textarea
               type="textarea"
@@ -86,9 +94,15 @@ function CadastroCategoria() {
               //   //setValue('Descricção', infosDoEvento.target.value); //setNomeDaCategoria(infosDoEvento.target.value);
               // }}
             />
-          </label>
-
-          <label>
+          </label> */}
+          <FormField
+            label="Descrição"
+            type="textarea"
+            name="descricao"
+            value={values.descricao}
+            onChange={handleChange}
+          />
+          {/* <label>
             Cor:
             <input
               type="color"
@@ -101,7 +115,14 @@ function CadastroCategoria() {
               //   //setValue('COR', infosDoEvento.target.value); //setNomeDaCategoria(infosDoEvento.target.value);
               // }}
             />
-          </label>
+          </label> */}
+          <FormField
+            label="Cor"
+            type="color"
+            name="cor"
+            value={values.cor}
+            onChange={handleChange}
+          />
         </div>
 
         <button>Cadastrar</button>
